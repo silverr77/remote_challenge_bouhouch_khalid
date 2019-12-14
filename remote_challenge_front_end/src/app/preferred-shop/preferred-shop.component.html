@@ -1,0 +1,99 @@
+<html>
+
+<head>
+	<link href="assets/css/footer.css" type="text/css" rel="stylesheet" />
+	<link href="assets/css/rotating-card.css" rel="stylesheet" />
+              <link href="https://netdna.bootstrapcdn.com/font-awesome/4.5.0/css/font-awesome.min.css" rel="stylesheet" />
+	<title>My preferred shop</title>
+</head>
+
+<body>
+<nav class="navbar navbar-expand-lg navbar-dark bg-dark fixed-top" style="    background-color: #059710!important;">
+  <a class="navbar-brand" href="#">My Shop</a>
+  <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+    <span class="navbar-toggler-icon"></span>
+  </button>
+
+  <div class="collapse navbar-collapse" id="navbarSupportedContent">
+    <ul class="navbar-nav mr-auto">
+      <li class="nav-item">
+        <a class="nav-link" routerLink="/home">Home <span class="sr-only">(current)</span></a>
+      </li>
+      <li class="nav-item active">
+        <a class="nav-link" routerLink="/prefered">peferred shop</a>
+      </li>
+    </ul>
+    <div class="form-inline my-2 my-lg-0">
+      <button *ngIf="userLogin===0" routerLink='/login' class="btn btn-outline-light my-2 my-sm-0" style="margin-right: 1em;" type="submit">login</button>
+      <button *ngIf="userLogin===0" routerLink='/registration' class="btn btn-outline-light my-2 my-sm-0" type="submit">register</button>
+      <button *ngIf="userLogin===1" (click)="onLogout()" class="btn btn-light my-2 my-sm-0" type="submit">logout</button>
+    </div>
+  </div>
+</nav>
+<div class="container-fluid mt-5">
+
+        <div class="container"  style="width:78%;margin-bottom:50px; margin-top:80px; border-radius: 5px; -webkit-box-shadow: -5px 3px 29px -7px rgba(0,0,0,0.75);
+-moz-box-shadow: -5px 3px 29px -7px rgba(0,0,0,0.75);
+box-shadow: -2px 2px 22px -14px rgba(0,0,0,0.75);">
+<div id="title">
+  Your preferred Shops
+</div>
+	<div class="row mt-2" style="padding: 30px;">
+    <div *ngIf="preferredShops.length==0">
+      <p><i>You have no preferred shops yet !</i></p>
+    </div>
+		<div class="col-md-4" *ngFor="let shop of preferredShops">
+			 <div class="card-container">
+         <div class="card">
+             <div class="front">
+                 <div class="cover">
+                     <img src="assets/images/rotating_card_thumb.jpg"/>
+                 </div>
+                 <div class="user">
+                     <img class="img-circle" src="https://icons-for-free.com/iconfiles/png/512/shop-131994968029903071.png"/>
+                 </div>
+                 <div class="content">
+                     <div class="main">
+                         <h3 class="name">{{shop.name}}</h3>
+                         <p class="text-center">{{shop.Description}}</p>
+
+                     </div>
+                 </div>
+             </div> <!-- end front panel -->
+             <div class="back">
+                 <div class="header">
+                     <h5 class="motto">"neared shops!"</h5>
+                 </div>
+                 <div class="content">
+                     <div class="main">
+                         <h4 class="text-center">{{shop.name}}</h4>
+                         <p class="text-center"><i class="fa fa-phone"></i> +{{shop.phone}}</p>
+
+                         <p><i class="fa fa-map-marker"></i> {{shop.adresse}}</p>
+
+                     </div>
+                 </div>
+                 <div class="footer">
+                     <div class="social-links text-center">
+						<button (click)="onDelete(shop.id,shop.name)" style="margin-left:10px;" class="btn btn-outline-danger"><i class="fa fa-trash"></i> delete</button>
+                     </div>
+                 </div>
+             </div> <!-- end back panel -->
+         </div> <!-- end card -->
+     </div> <!-- end card-container -->
+		</div>
+
+
+	</div>
+
+</div>
+</div>
+
+
+  <app-footer></app-footer>
+
+<script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js" integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q" crossorigin="anonymous"></script>
+
+</body>
+</html>

@@ -1,0 +1,11 @@
+#login{
+        background: #2d7032;
+    color: white;
+    padding: 15px;
+    text-align: center;
+}
+#formLogin{
+      width: 80%;
+    margin: auto;
+    padding: 15px;
+}
